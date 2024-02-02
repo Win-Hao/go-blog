@@ -1,0 +1,18 @@
+server:
+  #debug 开发模式, release 生产模式
+  AppMode: "debug"
+  HttpPort: 8095
+  mySigningKey: "zhiyin"
+
+mysql:
+  ip: "localhost"
+  username: "root"
+  password: "Huang-yonghao0"
+  port: 3306
+  database: "new_demo"
+
+qiNiuYun:
+  accessKey: "hObs8CbEXIgIJS8MxGiYiSatcxXXp6ddjm5Eq4Dh"
+  secretKey: "5E1Ta96roZABvpuA4J7kjuevUrv2cLHbrBJVps7M"
+  bucket: "ginblog-zhiyin"
+  qiNiuServer: "http://s5i820msa.hn-bkt.clouddn.com/"

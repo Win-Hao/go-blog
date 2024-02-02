@@ -1,0 +1,133 @@
+basePath: /
+definitions:
+  models.RoleInfo:
+    properties:
+      createdAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      status:
+        type: boolean
+      title:
+        type: string
+    type: object
+host: localhost:8093
+info:
+  contact:
+    email: www.758494478@qq.com
+    name: 只因哥
+  description: 从头开始写一个demo
+  title: 规范地写一个go_demo
+  version: "1.0"
+paths:
+  /admin/hello:
+    get:
+      consumes:
+      - application/json
+      description: 测试一下
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: msg":"hello world"}
+          schema:
+            type: string
+      summary: hello world
+      tags:
+      - hello world
+  /role/add:
+    post:
+      consumes:
+      - application/json
+      description: 添加角色
+      parameters:
+      - description: Role Information
+        in: body
+        name: roleInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.RoleInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RoleInfo'
+      summary: 创建角色
+      tags:
+      - Role
+  /role/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 删除角色
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 删除成功
+          schema:
+            type: string
+        "400":
+          description: 删除失败
+          schema:
+            type: string
+      summary: 删除角色
+      tags:
+      - Role
+  /role/detail:
+    get:
+      consumes:
+      - application/json
+      description: 获取角色信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RoleInfo'
+      summary: 获取角色信息
+      tags:
+      - Role
+  /role/edit/{id}:
+    put:
+      consumes:
+      - application/json
+      description: 修改角色
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Role Information
+        in: body
+        name: roleInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.RoleInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.RoleInfo'
+        "400":
+          description: 修改失败
+          schema:
+            type: string
+      summary: 修改角色
+      tags:
+      - Role
+swagger: "2.0"
